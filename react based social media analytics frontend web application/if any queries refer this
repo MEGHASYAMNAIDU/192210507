@@ -1,0 +1,21 @@
+Prerequisites
+React App created (e.g., via Vite or Create React App).
+Component Libraries installed:
+
+shadcn/ui for UI components like Card, Tabs, etc.
+Dependencies to Install
+You should install the following packages:
+
+npm install recharts
+If you're using shadcn/ui, also make sure the components (Card, Tabs, etc.) are properly generated or imported.
+If You See Errors Like:
+Module not found: Can't resolve '@/components/ui/card'
+Then you need to:
+
+Use correct paths relative to your file (replace @ with actual path or set up path aliasing in your build tool like Vite or Webpack).
+Summary
+If dependencies are installed and file paths are correct, your code will:
+
+Render a beautiful tabbed dashboard.
+
+Display a working bar chart under "Engagement".
