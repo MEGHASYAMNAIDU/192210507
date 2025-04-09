@@ -1,0 +1,51 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+const PORT = 3000;
+app.use(bodyParser.json());
+
+//  Prime Number Check
+app.post('/prime', (req, res) => {
+  const num = req.body.number;
+  if (typeof num !== 'number' || num < 2) return res.json({ prime: false });
+
+  const isPrime = !Array.from({ length: num - 2 }, (_, i) => i + 2).some(i => num % i === 0);
+  res.json({ prime: isPrime });
+});
+
+//  Fibonacci Series
+app.post('/fibonacci', (req, res) => {
+  const count = req.body.count;
+  if (typeof count !== 'number' || count < 1) {
+    return res.status(400).json({ error: 'Provide a positive number' });
+  }
+
+  const series = [0, 1];
+  while (series.length < count) {
+    series.push(series[series.length - 1] + series[series.length - 2]);
+  }
+
+  res.json({ series: series.slice(0, count) });
+});
+
+//  Even Number Check
+app.post('/even', (req, res) => {
+  const num = req.body.number;
+  if (typeof num !== 'number') return res.status(400).json({ error: 'Provide a number' });
+
+  res.json({ even: num % 2 === 0 });
+});
+
+//  Random Number Generator
+app.get('/random', (req, res) => {
+  const min = parseInt(req.query.min) || 0;
+  const max = parseInt(req.query.max) || 100;
+
+  const random = Math.floor(Math.random() * (max - min + 1)) + min;
+  res.json({ random });
+});
+
+app.listen(PORT, () => {
+  console.log(`Number Utility Microservices running on http://localhost:${PORT}`);
+});
