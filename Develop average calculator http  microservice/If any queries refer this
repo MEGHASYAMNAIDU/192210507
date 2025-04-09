@@ -1,0 +1,22 @@
+
+1.Make sure Node.js is installed.
+node -v
+npm -v
+2. Create Your Project Folder
+mkdir number-utils
+cd number-utils
+3.Initialize NPM and Install Dependencies
+npm init -y
+npm install express body-parser
+This will create:
+package.json
+node_modules folder
+
+4.Create index.js with the Code
+5.Run the Server
+node index.js
+
+6.Test the APIs with Tools like:
+ Postman (recommended)
+Curl (CLI)
+Your browser (for GET endpoints)
